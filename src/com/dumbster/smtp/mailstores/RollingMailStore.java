@@ -9,16 +9,18 @@ import java.util.List;
 
 public class RollingMailStore implements MailStore {
 
-    private List<MailMessage> receivedMail;
+    private final List<MailMessage> receivedMail;
 
     public RollingMailStore() {
         receivedMail = Collections.synchronizedList(new ArrayList<MailMessage>());
     }
 
+    @Override
     public int getEmailCount() {
         return receivedMail.size();
     }
 
+    @Override
     public void addMessage(MailMessage message) {
         System.out.println("\n\nReceived message:\n" + message);
         receivedMail.add(message);
@@ -27,10 +29,12 @@ public class RollingMailStore implements MailStore {
         }
     }
 
+    @Override
     public MailMessage[] getMessages() {
         return receivedMail.toArray(new MailMessage[receivedMail.size()]);
     }
 
+    @Override
     public MailMessage getMessage(int index) {
         return receivedMail.get(index);
     }

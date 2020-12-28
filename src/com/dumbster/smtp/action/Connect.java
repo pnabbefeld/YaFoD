@@ -7,18 +7,17 @@ import com.dumbster.smtp.SmtpState;
 
 public class Connect implements Action {
 
-    public String toString() {
-        return "Connect";
-    }
-
+    @Override
     public Response response(SmtpState smtpState, MailStore mailStore, MailMessage currentMessage) {
         if (SmtpState.CONNECT == smtpState) {
-            return new Response(220,
-                    "localhost Dumbster SMTP service ready", SmtpState.GREET);
+            return new Response(220, "localhost Dumbster SMTP service ready", SmtpState.GREET);
         } else {
-            return new Response(503, "Bad sequence of commands: " + this,
-                    smtpState);
+            return new Response(503, "Bad sequence of commands: " + this, smtpState);
         }
     }
 
+    @Override
+    public String toString() {
+        return "Connect";
+    }
 }

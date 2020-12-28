@@ -12,6 +12,7 @@ public class Rcpt implements Action {
         return "RCPT";
     }
 
+    @Override
     public Response response(SmtpState smtpState, MailStore mailStore, MailMessage currentMessage) {
         if (SmtpState.RCPT == smtpState) {
             return new Response(250, "OK", smtpState);
@@ -20,5 +21,4 @@ public class Rcpt implements Action {
                     "Bad sequence of commands: " + this, smtpState);
         }
     }
-
 }

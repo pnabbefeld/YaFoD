@@ -7,10 +7,7 @@ import com.dumbster.smtp.SmtpState;
 
 public class Ehlo implements Action {
 
-    public String toString() {
-        return "EHLO";
-    }
-
+    @Override
     public Response response(SmtpState smtpState, MailStore mailStore, MailMessage currentMessage) {
         if (SmtpState.GREET == smtpState) {
             return new Response(250, "OK", SmtpState.MAIL);
@@ -20,4 +17,8 @@ public class Ehlo implements Action {
         }
     }
 
+    @Override
+    public String toString() {
+        return "EHLO";
+    }
 }

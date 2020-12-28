@@ -7,21 +7,24 @@ import com.dumbster.smtp.SmtpState;
 
 public class BlankLine implements Action {
 
+    @Override
+    public Response response(SmtpState smtpState, MailStore mailStore, MailMessage currentMessage) {
+        if (null == smtpState) {
+            return new Response(503, "Bad sequence of commands: " + this, smtpState);
+        } else {
+            switch (smtpState) {
+                case DATA_HDR:
+                    return new Response(-1, "", SmtpState.DATA_BODY);
+                case DATA_BODY:
+                    return new Response(-1, "", smtpState);
+                default:
+                    return new Response(503, "Bad sequence of commands: " + this, smtpState);
+            }
+        }
+    }
 
     @Override
     public String toString() {
         return "Blank line";
     }
-
-    public Response response(SmtpState smtpState, MailStore mailStore, MailMessage currentMessage) {
-        if (SmtpState.DATA_HDR == smtpState) {
-            return new Response(-1, "", SmtpState.DATA_BODY);
-        } else if (SmtpState.DATA_BODY == smtpState) {
-            return new Response(-1, "", smtpState);
-        } else {
-            return new Response(503,
-                    "Bad sequence of commands: " + this, smtpState);
-        }
-    }
-
 }
