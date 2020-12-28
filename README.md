@@ -1,4 +1,7 @@
-Dumbster fake SMTP Server
+= Dumbster fake SMTP Server
+
+Forked from https://github.com/rjo1970/dumbster on 28th of December, 2020.
+
 Forked from http://quintanasoft.com/dumbster/ version 1.6 by Jason Kitchen
 
 * Works as a single-threaded unit testing SMTP target
@@ -51,6 +54,23 @@ EXAMPLE (SMTP fake server for QA, running on port 4444)
 For more help use the command:
 
     java -jar dumbster.jar --help
+
+== Reasons for the fork and planned 
+
+1. This implementation will be more library-like, i.e. it should be possible to access header fields and body parts easily by an API.
+
+2. Quoted-printable body-parts need to be decoded to be usable e.g. with Outlook.
+
+
+== Planned changes and extensions (additional to the before-mentioned reasons)
+
+1. Re-formatting and re-ordering according to my personal likes.
+
+2. Syntax update. First step will be update to Java 7.
+
+3. Constants usage for messages (to avoid breaking tests when changing/extending messages).
+
+4. Documentation should be extended.
 
 
 LICENSE
