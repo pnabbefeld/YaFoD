@@ -78,9 +78,6 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>${project.basedir}/src</sourceDirectory>
-        <testSourceDirectory>${project.basedir}/test-src</testSourceDirectory>
-
         <extensions>
             <extension>
                 <groupId>org.apache.maven.scm</groupId>
@@ -152,7 +149,7 @@
                 </executions>
             </plugin>
         </plugins>
-    </build>
+        </build>
 
     <reporting>
         <plugins>
