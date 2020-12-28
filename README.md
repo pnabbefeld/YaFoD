@@ -16,6 +16,7 @@ Forked from http://quintanasoft.com/dumbster/ version 1.6 by Jason Kitchen
 * use list command with an index 0..(size-1) of messages to view a message
 
 EXAMPLE (SMTP unit testing fake)
+
     public class SmtpServerTest extends TestCase {
     ...
       public void testSend() {
@@ -44,9 +45,11 @@ EXAMPLE (SMTP unit testing fake)
     }
 
 EXAMPLE (SMTP fake server for QA, running on port 4444)
+
     java -jar dumbster.jar 4444
 
 For more help use the command:
+
     java -jar dumbster.jar --help
 
 
