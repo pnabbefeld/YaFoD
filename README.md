@@ -16,38 +16,38 @@ Forked from http://quintanasoft.com/dumbster/ version 1.6 by Jason Kitchen
 * use list command with an index 0..(size-1) of messages to view a message
 
 EXAMPLE (SMTP unit testing fake)
-public class SmtpServerTest extends TestCase {
-...
-  public void testSend() {
-    SmtpServer server = SmtpServerFactory.startServer();
+    public class SmtpServerTest extends TestCase {
+    ...
+      public void testSend() {
+        SmtpServer server = SmtpServerFactory.startServer();
 
-    try {
-      // Submits an email using javamail to the email server listening on
-      // port 25 
-      // (method not shown here). Replace this with a call to your app
-      // logic.
-      sendMessage(25, "sender@here.com", "Test", "Test Body",
-"receiver@there.com");
-    } catch(Exception e) {
-      e.printStackTrace();
-      fail("Unexpected exception: "+e);
+        try {
+          // Submits an email using javamail to the email server listening on
+          // port 25 
+          // (method not shown here). Replace this with a call to your app
+          // logic.
+          sendMessage(25, "sender@here.com", "Test", "Test Body",
+    "receiver@there.com");
+        } catch(Exception e) {
+          e.printStackTrace();
+          fail("Unexpected exception: "+e);
+        }
+
+        server.stop();
+
+        assertTrue(server.getReceivedEmailSize() == 1);
+        MailMessage message = server.getMessage(0);
+        assertEquals("Test", email.getHeaderValue("Subject"));
+        assertEquals("Test Body", email.getBody());	
+      }
+    ...  
     }
 
-    server.stop();
-
-    assertTrue(server.getReceivedEmailSize() == 1);
-    MailMessage message = server.getMessage(0);
-    assertEquals("Test", email.getHeaderValue("Subject"));
-    assertEquals("Test Body", email.getBody());	
-  }
-...  
-}
-
 EXAMPLE (SMTP fake server for QA, running on port 4444)
-java -jar dumbster.jar 4444
+    java -jar dumbster.jar 4444
 
 For more help use the command:
-java -jar dumbster.jar --help
+    java -jar dumbster.jar --help
 
 
 LICENSE
