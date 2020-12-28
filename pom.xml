@@ -3,22 +3,22 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.github.rjo1970</groupId>
+    <groupId>de.pna.tools</groupId>
     <artifactId>dumbster</artifactId>
     <packaging>jar</packaging>
-    <version>1.9.0.2-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 
-    <name>Dumbster</name>
+    <name>Yet another Fork of Dumbster</name>
     <description>
-         fake SMTP server
+         Fake SMTP server
     </description>
 
-    <url>https://github.com/rjo1970/dumbster</url>
+    <url>https://github.com/pnabbefeld/YaFoD</url>
 
     <scm>
-        <url>https://github.com/rjo1970/dumbster</url>
-        <connection>scm:git:https://github.com/rjo1970/dumbster.git</connection>
-        <developerConnection>scm:git:${githubUserAndHost}:rjo1970/dumbster.git</developerConnection>
+        <url>https://github.com/pnabbefeld/YaFoD</url>
+        <connection>scm:git:https://github.com/pnabbefeld/YaFoD.git</connection>
+        <developerConnection>scm:git:${githubUserAndHost}:pnabbefeld/YaFoD.git</developerConnection>
     </scm>
 
     <licenses>
@@ -46,14 +46,14 @@
 
         <site>
             <id>github-project-site</id>
-            <url>gitsite:${githubUserAndHost}/rjo1970/dumbster</url>
+            <url>gitsite:${githubUserAndHost}/pnabbefeld/YaFoD</url>
         </site>
     </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jdk_version>1.6</jdk_version>
+        <jdk_version>1.7</jdk_version>
     </properties>
 
     <dependencies>
